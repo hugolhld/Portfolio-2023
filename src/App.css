@@ -1,0 +1,27 @@
+.gradient {
+  /* background-size: 200% 200%; */
+  background: linear-gradient(92.46deg, rgb(187, 21, 40) 0.94%, rgb(144, 29, 197) 52.06%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 0.1em transparent;
+  color: #3F254B;
+}
+
+.gradient-bg {
+  background: -webkit-linear-gradient(0, rgb(187, 21, 40) 0.94%, rgb(144, 29, 197) 52.06%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.snapcontent {
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.snapelement {
+  scroll-snap-align: start;
+
+}
+
+::-webkit-scrollbar {
+  display: none;
+  }
