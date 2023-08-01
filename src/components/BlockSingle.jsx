@@ -24,6 +24,28 @@ const BlockSingle = ({pos, index, section}) => {
     // useEffect(() => {
     //   console.log(section)
     // }, [section])
+
+    const [sectionID, setsectionID] = useState(0)
+
+    // useEffect(() => {
+    //   setsectionID(section)
+    // }, [])
+
+    const testSection = () => {
+        if(section !== sectionID) {
+            setsectionID(section)
+        }
+    }
+
+    // window.addEventListener('wheel', () => {
+    //     testSection()
+    //     console.log(section)
+    // })
+    
+    // useEffect(() => {
+    //   console.log(section)
+    // }, [section])
+    
     
 
 
@@ -222,7 +244,7 @@ const BlockSingle = ({pos, index, section}) => {
 
                 <mesh>
                     <boxGeometry args={[1,1,1]} />
-                    <meshBasicMaterial wireframe />
+                    <meshBasicMaterial wireframe /* color={color} */ />
                 </mesh>
 
             </RigidBody>

@@ -7,6 +7,7 @@ import BlockElement from './BlockElement'
 import BlockSingle from './BlockSingle'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import scrollHooks from '../functions/scrollHooks'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -78,6 +79,16 @@ const Three = ({countScroll, mainRef}) => {
 let scrollY = window.scrollY
 let currentSection = 0
 
+
+let ttt = scrollHooks()
+console.log(scrollHooks())
+
+window.addEventListener('click', () => {
+    console.log(ttt)
+})
+
+
+
 const [sectionIndex, setSectionIndex] = useState(0)
 
 let cameraTest 
@@ -89,12 +100,15 @@ window.addEventListener('scroll', () =>
     // console.log(groupRef.current.children[0].translation)
     scrollY = window.scrollY
     const newSection = Math.round(scrollY / window.innerHeight)
+    // setcurrentSection(Math.round(scrollY / window.innerHeight))
     // console.log((scrollY / window.innerHeight) - Math.round(scrollY / window.innerHeight))
 
     if(newSection != currentSection)
     {
-        // console.log(newSection)
+        console.log(newSection)
+        console.log(currentSection)
         currentSection = newSection
+        // setcurrentSectionState(newSection)
         // setSectionIndex(newSection)
         console.log('new section')
         // gsap.to(
@@ -107,31 +121,36 @@ window.addEventListener('scroll', () =>
         //         z: '+=1.5'
         //     }
         // )
-        console.log(camera)
+        // console.log(camera)
         
     }
 
     if(currentSection == 1) {
     
-        gsap.to(groupRef.current.position, {
-            scrollTrigger: {
-                markers: true,
-                trigger: mainRef.current.children[1]
-            },
-            y: 0,
-            duration: 3
-        })
-        
-    } else if(currentSection == 2) {
+        if(groupRef.current.position) {
+            gsap.to(groupRef.current.position, {
+                
+                scrollTrigger: {
+                    markers: true,
+                    trigger: mainRef.current.children[1]
+                },
+                y: 0,
+                duration: 3
+            })
+        }
 
-        gsap.to(groupRef.current.position, {
-            scrollTrigger: {
-                markers: true,
-                trigger: mainRef.current.children[2]
-            },
-            y: 10,
-            duration: 3
-        })
+    } else if(currentSection == 2) {
+        // if(groupRef.current.position) {
+            // gsap.to(groupRef.current.position, {
+            //     scrollTrigger: {
+            //         markers: true,
+            //         trigger: mainRef.current.children[2]
+            //     },
+            //     // y: 10,
+            //     y: 0,
+            //     duration: 3
+            // })
+        // }
 
         // console.log(cameraTest.rotation)
         // console.log(mainRef.current.children[2] /* .children[2] */)
@@ -263,6 +282,10 @@ useFrame((state, delta) => {
       
     const floorRef = useRef()
 
+    const [colorTemp, setcolorTemp] = useState('blue')
+
+    window.addEventListener('click', () => setcolorTemp('black'))
+
   return (
         <group /* type='fixed' */ ref={groupRef}/* position={[6, 0, -6]}*/ >
     <Physics>
@@ -280,7 +303,7 @@ useFrame((state, delta) => {
                         {
                             finalCoord.map((element, index) => {
 
-                                return <BlockSingle key={index} index={index} pos={element} section={currentSection} />
+                                return <BlockSingle key={index} index={index} pos={element} section={0} />
 
                             })
                         }
