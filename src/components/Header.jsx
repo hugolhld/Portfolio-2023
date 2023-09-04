@@ -48,7 +48,8 @@ const Header = () => {
         <div className={`${isScrolling && 'py-8'} transition-all w-5/5 flex  mx-auto`}>
 
             <div className={`w-1/3 justify-center flex`}>
-                <div className={` ${isScrolling ? topLeftStyleScroll : topLeftStyleInit} h-16 bg-black flex justify-center items-center transition-all`} style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
+                {/* ${isScrolling ? topLeftStyleScroll : topLeftStyleInit} */}
+                <div className={` ${topLeftStyleScroll} h-16 bg-black flex justify-center items-center transition-all`} style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
                     <span className='text-white font-bold text-3xl text-center '>
                         H
                     </span>
@@ -56,8 +57,8 @@ const Header = () => {
             </div>
             
             <div className={` w-2/3 flex justify-center`} >
-
-                <div className={` ${isScrolling ? topRightStyleScroll : topRightStyleInit} transition-all bg-black flex items-center justify-center`} style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} >
+                {/* ${isScrolling ? topRightStyleScroll : topRightStyleInit} */}
+                <div className={` ${topRightStyleScroll} transition-all bg-black flex items-center justify-center`} style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} >
                     
                     {/* 
                     

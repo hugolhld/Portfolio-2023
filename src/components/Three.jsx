@@ -93,8 +93,13 @@ const [sectionIndex, setSectionIndex] = useState(0)
 
 let cameraTest 
 
+let activeScroll = false
+
 window.addEventListener('scroll', () =>
 {
+    if(!activeScroll) {
+        activeScroll = true
+    }
     // console.log(groupRef.current)
     // groupRef.current.forEach(el => console.log(el))
     // console.log(groupRef.current.children[0].translation)
@@ -127,19 +132,27 @@ window.addEventListener('scroll', () =>
 
     if(currentSection == 1) {
     
-        if(groupRef.current.position) {
-            gsap.to(groupRef.current.position, {
+        // if(groupRef) {
+        //     gsap.to(groupRef.current.rotation, {
                 
-                scrollTrigger: {
-                    markers: true,
-                    trigger: mainRef.current.children[1]
-                },
-                y: 0,
-                duration: 3
-            })
-        }
+        //         scrollTrigger: {
+        //             markers: true,
+        //             trigger: mainRef.current.children[1]
+        //         },
+        //         y: Math.PI * 2,
+        //         duration: 3
+        //     })
+        // }
 
     } else if(currentSection == 2) {
+
+        // let scrollYSecond = window.scrollY
+        // let docHeightSecond = document.querySelector('').offsetHeight
+        // let winheightSecond = window.innerHeight
+        // let secondPercent = scrollYSecond / (docHeightSecond - winheightSecond)
+
+        console.log(mainRef.current.children[2])
+
         // if(groupRef.current.position) {
             // gsap.to(groupRef.current.position, {
             //     scrollTrigger: {
@@ -207,12 +220,42 @@ window.addEventListener('scroll', () =>
 })
 
 
+// if(activeScroll) {
+// }
+
+const tl = gsap.timeline({
+    scrollTrigger: {
+        markers: true,
+        trigger: mainRef.current.children[1],
+        scrub: 1
+    },
+})
+
+useEffect(() => {
+    // gsap.to(groupRef.current.rotation, {
+        
+    //     scrollTrigger: {
+    //         markers: true,
+    //         trigger: mainRef.current.children[1]
+    //     },
+    //     y: Math.PI * 2,
+    //     duration: 3
+    // })
+    tl.to(groupRef.current.rotation, {
+        y: Math.PI * 2,
+        duration: 3
+    })
+  
+}, [groupRef.current])
+
+
 useFrame((state, delta) => {
 
     cameraTest= state.camera
 
+
     if(currentSection == 1) {
-        
+        console.log('first')
         // const angle = state.clock.elapsedTime
         // // console.log( groupRef.current.position.x)
         // const scrollAngle = /* (Math.PI * 2) * */ (scrollY / window.innerHeight)
@@ -222,6 +265,7 @@ useFrame((state, delta) => {
         // state.camera.lookAt(0, 0, 0)
     } else if(currentSection == 2) {
 
+        console.log('second')
 
         // state.camera.position.x = 15
         // state.camera.position.z = 15
@@ -246,6 +290,8 @@ useFrame((state, delta) => {
         // groupRef.current.rotation.z += 0.01
         let angle = state.clock.elapsedTime 
         const rotation = new THREE.Quaternion()
+
+        console.log('three')
         // rotation.setFromEuler(new THREE.Euler(Math.sin(angle), 0, Math.cos(angle)))
         // groupRef.current.setTranslation({x: Math.sin(angle) * 7.5, y: 0, z: Math.cos(angle) * 7.5})
         // groupRef.current.position.x = Math.sin(angle) 

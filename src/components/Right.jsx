@@ -4,7 +4,7 @@ import ThreeTest from './ThreeTest'
 import CC from './CC'
 import { Canvas } from '@react-three/fiber'
 import Three from './Three'
-import { Center } from '@react-three/drei'
+import { Center, Loader } from '@react-three/drei'
 
 const Right = ({countScroll, mainRef}) => {
   return (
@@ -12,7 +12,7 @@ const Right = ({countScroll, mainRef}) => {
         {/* <div className=' w-4/5 h-3/5 shadow-2xl'> */}
             {/* <Threescene /> */}
             <Canvas shadows  camera={{position: [15, 15, 15], fov: 30}}>
-                <Suspense>
+                <Suspense fallback={null}>
 
                     {/* <group position={[2.5, 0, -2.5]}> */}
                     {/* <Center> */}
@@ -24,6 +24,7 @@ const Right = ({countScroll, mainRef}) => {
 
                 </Suspense>
             </Canvas>
+            <Loader />
             {/* <CC/> */}
         {/* </div> */}
     </div>
