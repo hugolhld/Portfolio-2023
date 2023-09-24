@@ -1,11 +1,12 @@
 import { Box } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
+import { gsap } from 'gsap'
 import React, { useEffect, useRef, useState } from 'react'
 import { BoxGeometry } from 'three'
 import * as THREE from 'three'
 
-const BlockSingle = ({pos, index, section}) => {
+const BlockSingle = ({pos, index, section, mainRef}) => {
 
     const boxRef = useRef()
 
@@ -30,6 +31,33 @@ const BlockSingle = ({pos, index, section}) => {
     // useEffect(() => {
     //   setsectionID(section)
     // }, [])
+
+    useFrame((state, delta) => {
+        // console.log(boxRef.current.position())
+    })
+
+    // useEffect(() => {
+
+    //     console.log(boxRef.current.translation())
+    //     console.log(mainRef)
+    //     console.log(pos)
+
+    //     gsap.to(boxRef.current.translation(), {
+    //         scrollTrigger: {
+    //             trigger: mainRef,
+    //             scrub: true,
+    //             markers: true
+    //         }, 
+    //         x: pos[0],
+    //         y: pos[1],
+    //         z: pos[2],
+    //         duration: 3
+    //     })
+
+    //     console.log(boxRef)
+    // }, [boxRef.current])
+    
+
 
     const testSection = () => {
         if(section !== sectionID) {
@@ -217,10 +245,10 @@ const BlockSingle = ({pos, index, section}) => {
                 z: pos[2]
             })
 
-            setTimeout(() => {
-                boxRef.current.setBodyType(0)
-                console.log('sec')
-            }, 10000);
+            // setTimeout(() => {
+            //     boxRef.current.setBodyType(0)
+            //     console.log('sec')
+            // }, 10000);
             // setTimeout(() => {
             //     boxRef.current.addForce({x: 2, y:0, z: -5})
             //     console.log('sec')
@@ -236,15 +264,19 @@ const BlockSingle = ({pos, index, section}) => {
                 ref={boxRef}
                 position={[
                     index - 3,
-                    Math.floor(Math.random() * (8 - 5) + 5),
-                    Math.floor(Math.random() * (4 + 4) - 4),
+                    Math.floor(Math.random() * (7 - 4) + 4),
+                    Math.floor(Math.random() * (3 + 3) - 3),
                 ]} 
                 restitution={1}
             >
 
-                <mesh>
+                <mesh /* ref={boxRef} position={[
+                    index - 3,
+                    Math.floor(Math.random() * (8 - 5) + 5),
+                    Math.floor(Math.random() * (4 + 4) - 4),
+                ]} */  >
                     <boxGeometry args={[1,1,1]} />
-                    <meshBasicMaterial wireframe /* color={color} */ />
+                    <meshPhongMaterial transparent={true} opacity={1} wireframe /* color={color} */ />
                 </mesh>
 
             </RigidBody>

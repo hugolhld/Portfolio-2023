@@ -1,4 +1,4 @@
-import { Box, Center, Float, OrbitControls } from '@react-three/drei'
+import { Box, Center, Float, OrbitControls, Sphere } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { Physics, RigidBody } from '@react-three/rapier'
 import React, { useEffect, useRef, useState } from 'react'
@@ -8,12 +8,19 @@ import BlockSingle from './BlockSingle'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import scrollHooks from '../functions/scrollHooks'
+import Globe from 'react-globe.gl'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Three = ({countScroll, mainRef}) => {
     // console.log(countScroll)
+    
+
+    const [showWireframe, setShowWireframe] = useState(true)
+
     const groupRef = useRef()
+    const opaRef = useRef()
+    const globeRef = useRef()
 
     const {camera} = useThree()
 
@@ -42,7 +49,7 @@ const Three = ({countScroll, mainRef}) => {
             // console.log(el)
             el.style.background = 'blue'
             // setcountScroll(countScroll + 1)
-            console.log('cc')
+            // console.log('cc')
             num += 1
             // console.log(num)
             // settetetet(prev => prev + 1)
@@ -80,12 +87,12 @@ let scrollY = window.scrollY
 let currentSection = 0
 
 
-let ttt = scrollHooks()
-console.log(scrollHooks())
+// let ttt = scrollHooks()
+// console.log(scrollHooks())
 
-window.addEventListener('click', () => {
-    console.log(ttt)
-})
+// window.addEventListener('click', () => {
+//     console.log(ttt)
+// })
 
 
 
@@ -110,8 +117,8 @@ window.addEventListener('scroll', () =>
 
     if(newSection != currentSection)
     {
-        console.log(newSection)
-        console.log(currentSection)
+        // console.log(newSection)
+        // console.log(currentSection)
         currentSection = newSection
         // setcurrentSectionState(newSection)
         // setSectionIndex(newSection)
@@ -151,7 +158,7 @@ window.addEventListener('scroll', () =>
         // let winheightSecond = window.innerHeight
         // let secondPercent = scrollYSecond / (docHeightSecond - winheightSecond)
 
-        console.log(mainRef.current.children[2])
+        // console.log(mainRef.current.children[2])
 
         // if(groupRef.current.position) {
             // gsap.to(groupRef.current.position, {
@@ -225,7 +232,7 @@ window.addEventListener('scroll', () =>
 
 const tl = gsap.timeline({
     scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: mainRef.current.children[1],
         scrub: 1
     },
@@ -235,18 +242,113 @@ useEffect(() => {
     // gsap.to(groupRef.current.rotation, {
         
     //     scrollTrigger: {
-    //         markers: true,
+            // markers: true,
     //         trigger: mainRef.current.children[1]
     //     },
     //     y: Math.PI * 2,
     //     duration: 3
     // })
-    tl.to(groupRef.current.rotation, {
+    gsap.to(groupRef.current.rotation, {
+        scrollTrigger: {
+            trigger: mainRef.current.children[1],
+            scrub: true,
+            end: 'center center'
+            // markers: true
+        }, 
         y: Math.PI * 2,
         duration: 3
     })
-  
+
+    for(const child of groupRef.current.children[2].children) {
+        gsap.to(child.children[0].material, {
+            scrollTrigger: {
+                trigger: mainRef.current.children[2],
+                scrub: true,
+                end: 'center center'
+                // markers: true,
+                // start: 'top top',
+                // end: '+=100'
+            }, 
+            opacity: 0,
+            // wireframe: false,
+            // transparent: true,
+            duration: 3,
+            
+        })
+      }
+    for(const child of groupRef.current.children[2].children) {
+        gsap.to(child.children[0].position, {
+            scrollTrigger: {
+                trigger: mainRef.current.children[2],
+                scrub: true,
+                end: 'center center'
+                // markers: true,
+                // start: 'top top',
+                // end: '+=100'
+            }, 
+            z: -1,
+            // wireframe: false,
+            // transparent: true,
+            duration: 3,
+            
+        })
+      }
+
+      gsap.to(groupRef.current.position, {
+        scrollTrigger: {
+            trigger: mainRef.current.children[3],
+            scrub: true,
+            // markers: true,
+            start: 'center center'
+        },
+        y: '+=10',
+        duration: 3
+      })
 }, [groupRef.current])
+
+useEffect(() => {
+//   console.log(opaRef)
+
+  for(const child of opaRef.current.children[0].children) {
+    gsap.to(child.material, {
+        scrollTrigger: {
+            trigger: mainRef.current.children[2],
+            scrub: true,
+            end: 'center center'
+            // markers: true
+        }, 
+        opacity: 1,
+        duration: 3
+    })
+  }
+  console.log(opaRef)
+
+  gsap.to(opaRef.current.children[1].material, {
+    scrollTrigger: {
+        trigger: mainRef.current.children[2],
+        scrub: true,
+        end: 'center center'
+        // markers: true,
+    },
+    opacity: 1,
+    duration: 3
+  })
+}, [opaRef])
+
+// useEffect(() => {
+//   gsap.to(globeRef.current.position, {
+//     scrollTrigger: {
+//         trigger: mainRef.current.children[3],
+//         scrub: true,
+//         markers: true,
+//         start: 'center center'
+//     },
+//     y: '+=20',
+//     duration: 3
+//   })
+// }, [globeRef.current])
+
+
 
 
 useFrame((state, delta) => {
@@ -330,65 +432,124 @@ useFrame((state, delta) => {
 
     const [colorTemp, setcolorTemp] = useState('blue')
 
-    window.addEventListener('click', () => setcolorTemp('black'))
+    // window.addEventListener('click', () => setcolorTemp('black'))
+
+    const N = 300;
+    const gData = [...Array(N).keys()].map(() => ({
+        lat: (Math.random() - 0.5) * 180,
+        lng: (Math.random() - 0.5) * 360,
+        size: Math.random() / 3,
+        color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
+    }));
 
   return (
+    <group>
         <group /* type='fixed' */ ref={groupRef}/* position={[6, 0, -6]}*/ >
-    <Physics>
+            <Physics>
 
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[-10, 10, 0]} intensity={0.4} />
+                    <ambientLight intensity={0.2} />
+                    {/* <directionalLight position={[-10, 10, 0]} intensity={0.4} /> */}
+                    <pointLight position={[0, 5, 5]} intensity={0.6} />
 
-            <OrbitControls /> 
+                    {/* <OrbitControls />  */}
 
-            {/* <Float> */}
+                    {/* <Float> */}
 
-                    <group /* ref={groupRef} */ position={[0, 1, 0]}  /* position={[-1.2, 1, 0.3]} */ rotation={[0, 1, 0]}> 
+                            {
+                                showWireframe &&
 
-
-                        {
-                            finalCoord.map((element, index) => {
-
-                                return <BlockSingle key={index} index={index} pos={element} section={0} />
-
-                            })
-                        }
-
-                    </group>
-
-                <RigidBody type='fixed'  position={[0, 4.5, -4.5]}>
-                    <Box args={[10, 10, 1]}>
-                        <meshStandardMaterial transparent={true} opacity={0} />
-                    </Box>
-                </RigidBody>
-
-                <RigidBody type='fixed' position={[-4.5, 4.5, 0]}>
-                    <Box args={[1, 10, 10]}>
-                        <meshStandardMaterial transparent={true} opacity={0} />
-                    </Box>
-                </RigidBody>
-
-                <RigidBody type='fixed' position={[4.5, 4.5, 0]}>
-                    <Box args={[1, 10, 10]}>
-                        <meshStandardMaterial transparent={true} opacity={0} />
-                    </Box>
-                </RigidBody>
-                <RigidBody type='fixed' position={[0, 4.5, 4.5]}>
-                    <Box args={[10, 10, 1]}>
-                        <meshStandardMaterial transparent={true} opacity={0} />
-                    </Box>
-                </RigidBody>
-
-                <RigidBody ref={floorRef} position={[0, 0, 0]} type='fixed' onSleep={() => console.log('sleepl')}>
-                    <Box args={[8, 1, 8]}>
-                        <meshStandardMaterial wireframe color={'grey'} />
-                    </Box>
-                </RigidBody>
-            {/* </Float> */}
+                                <group /* ref={groupRef} */ position={[0, 1, 0]}  /* position={[-1.2, 1, 0.3]} */ rotation={[0, 1, 0]}> 
 
 
-    </Physics>
+                                {
+                                    finalCoord.map((element, index) => {
+
+                                        return <BlockSingle key={index} mainRef={mainRef.current.children[0]} index={index} pos={element} section={0} />
+
+                                    })
+                                }
+
+                                </group>
+
+                                // :
+
+                                // null
+                            }
+
+                        <RigidBody type='fixed'  position={[0, 4.5, -4.5]}>
+                            <Box args={[10, 10, 1]}>
+                                <meshStandardMaterial transparent={true} opacity={0} />
+                            </Box>
+                        </RigidBody>
+
+                        <RigidBody type='fixed' position={[-4.5, 4.5, 0]}>
+                            <Box args={[1, 10, 10]}>
+                                <meshStandardMaterial transparent={true} opacity={0} />
+                            </Box>
+                        </RigidBody>
+
+                        <RigidBody type='fixed' position={[4.5, 4.5, 0]}>
+                            <Box args={[1, 10, 10]}>
+                                <meshStandardMaterial transparent={true} opacity={0} />
+                            </Box>
+                        </RigidBody>
+                        <RigidBody type='fixed' position={[0, 4.5, 4.5]}>
+                            <Box args={[10, 10, 1]}>
+                                <meshStandardMaterial transparent={true} opacity={0} />
+                            </Box>
+                        </RigidBody>
+
+                        <RigidBody ref={floorRef} position={[0, 0, 0]} type='fixed' onSleep={() => console.log('sleepl')}>
+                            <Box args={[8, 1, 8]}>
+                                <meshStandardMaterial wireframe color={'grey'} />
+                            </Box>
+                        </RigidBody>
+                    {/* </Float> */}
+
+
+            </Physics>
+
+            <group ref={opaRef}>
+                <group  /* ref={groupRef} */ position={[0, 1, 0]}  /* position={[-1.2, 1, 0.3]} */ rotation={[0, 0, 0]}> 
+
+
+                    {
+                        finalCoord.map((element, index) => {
+
+                            return (
+                                <mesh key={index} position={element}>
+                                    <boxGeometry args={[1,1,1]} />
+                                    <meshPhongMaterial color={0xbb1528} shininess={200} transparent={true} opacity={0} /* color={color} */ />
+                                </mesh>
+                            )
+                        })
+                    }
+
+                </group>
+
+                <Box args={[8, 1, 8]}>
+                    <meshPhongMaterial transparent={true} color={0x8e44ad} opacity={0} />
+                </Box>
+            </group>
         </group>
+
+        <group ref={globeRef} >
+            {/* <Globe
+                globeImageUrl="../assets/earth-dark.jpg"
+                pointsData={gData}
+                pointAltitude='size'
+                pointColor='color'
+            /> */}
+
+            {/* <Sphere position={[0, -20, 0]} args={[1.5, 32]}>
+                <meshPhongMaterial color={'blue'} />
+            </Sphere> */}
+            {/* <mesh>
+                <sphereGeometry args={[1, 32]} />
+            </mesh> */}
+        </group>
+
+    </group>
   )
 }
 

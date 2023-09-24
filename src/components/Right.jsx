@@ -5,10 +5,11 @@ import CC from './CC'
 import { Canvas } from '@react-three/fiber'
 import Three from './Three'
 import { Center, Loader } from '@react-three/drei'
+import GlobeComp from './GlobeComp'
 
 const Right = ({countScroll, mainRef}) => {
   return (
-    <div className='w-1/2 h-screen flex justify-center items-center fixed z-1'>
+    <div className='w-1/2  flex justify-center items-center fixed h-screen'>
         {/* <div className=' w-4/5 h-3/5 shadow-2xl'> */}
             {/* <Threescene /> */}
             <Canvas shadows  camera={{position: [15, 15, 15], fov: 30}}>
@@ -25,6 +26,9 @@ const Right = ({countScroll, mainRef}) => {
                 </Suspense>
             </Canvas>
             <Loader />
+
+            {/* <GlobeComp /> */}
+
             {/* <CC/> */}
         {/* </div> */}
     </div>

@@ -1,0 +1,109 @@
+{
+    "type": "Map",
+    "coordinates": [
+        {
+            "text": "PAR",
+            "size": 1.0,
+            "country": "FRANCE",
+            "city": "Paris",
+            "lat": "48.830175335285645",
+            "lng": "2.3516318052465124"
+        },
+        {
+            "text": "MAR",
+            "size": 1.0,
+            "country": "FRANCE",
+            "city": "Marseille",
+            "lat": "43.29378118494842", 
+            "lng": "5.383757193287444"
+        },
+        {
+            "text": "MAUR",
+            "size": 1.0,
+            "country": "Mauritus",
+            "city": "Ile Maurice",
+            "lat": "-20.156213860630753", 
+            "lng": "57.581617567949884"
+        },
+        {
+            "text": "NYC",
+            "size": 1.0,
+            "country": "US",
+            "city": "New York",
+            "lat": "40.71446972472218",
+            "lng": "-74.00711728317631"
+        },
+        {
+            "text": "MRL",
+            "size": 1.0,
+            "country": "Canada",
+            "city": "Montréal",
+            "lat": "45.503367889049194",
+            "lng": "-73.57547632988255"
+        },
+        {
+            "text": "ATH",
+            "size": 1.0,
+            "country": "Grece",
+            "city": "Athènes",
+            "lat": "37.98406191563592",
+            "lng": "23.726491498759767"
+        },
+        {
+            "text": "BCN",
+            "size": 1.0,
+            "country": "Spain",
+            "city": "Barceelone",
+            "lat": "41.3869216449129",
+            "lng": "2.16558834122826"
+        },
+        {
+            "text": "MLG",
+            "size": 1.0,
+            "country": "Spain",
+            "city": "Malaga",
+            "lat": "36.720534703321725",
+            "lng": "-4.422139969835121"
+        },
+        {
+            "text": "PTC",
+            "size": 1.0,
+            "country": "R.Dominicana",
+            "city": "Punta Cana",
+            "lat": "18.56105731031932",
+            "lng": "-68.36567874761224"
+        },
+        {
+            "text": "MXO",
+            "size": 1.0,
+            "country": "Mexique",
+            "city": "Mexico",
+            "lat": "19.431803093915992",
+            "lng": "-99.13943608611115"
+        },
+        {
+            "text": "MKC",
+            "size": 1.0,
+            "country": "Maroco",
+            "city": "Marrakech",
+            "lat": "31.876448070112136", 
+            "lng": "-8.250346076132553"
+        },
+        {
+            "text": "BDR",
+            "size": 1.0,
+            "country": "Turkish",
+            "city": "Bodrum",
+            "lat": "37.09551151387498",
+            "lng": "27.220797268181556"
+        },
+        {
+            "text": "ROM",
+            "size": 1.0,
+            "country": "Italia",
+            "city": "Rome",
+            "lat": "41.90113635372603",
+            "lng": "12.502291113815616"
+        }
+    ]
+}

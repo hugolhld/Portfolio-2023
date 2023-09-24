@@ -7,6 +7,9 @@ import Header from './components/Header'
 import Home from './screens/Home'
 import Right from './components/Right'
 import Works from './screens/Works'
+import Globe from './components/GlobeComp'
+import GlobeComp from './components/GlobeComp'
+import Skills from './screens/Skills'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -86,16 +89,25 @@ function App() {
       <Background />
       {/* <div className='w-full absolute z-10'> */}
         <Header />
-        <main className='flex relative'>
-          <div ref={tetstt} /* onScroll={scrollPercentage} */ id='scrollContainer' /* onScroll={(e) => handleScroll(e)} */ className="snapcontent left-content w-1/2 "/*max-h-screen overflow-scroll */>
-            <Home />
-            <Works />
-            <Works />
-            <Works />
-            <Works />
+        <main className=' '>
+          <div className="first__section flex relative">
+            <div ref={tetstt} id='scrollContainer' className="snapcontent left-content w-1/2 "/*max-h-screen overflow-scroll */>
+              <Home />
+              <Works />
+              <Skills />
+              <Works />
+            </div>
+            <div className='right-content absolute right-0  w-1/2'>
+              <Right mainRef={tetstt} countScroll={countScroll} />
+            </div>
           </div>
-          <div className='right-content absolute right-0 z-10 w-1/2'>
-            <Right mainRef={tetstt} countScroll={countScroll} />
+          <div className="second__section flex relative">
+            <div className='w-1/2'>
+              <Works />
+            </div>
+            <div className='w-1/2 flex justify-center overflow-hidden'>
+              <GlobeComp />
+            </div>
           </div>
         </main>
     </>
