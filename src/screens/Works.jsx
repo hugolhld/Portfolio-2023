@@ -2,7 +2,8 @@ import React from 'react'
 
 const Works = () => {
   return (
-    <section className='w-full h-screen flex justify-center items-center snapelement'>
+    <section className='w-full h-screen flex justify-center flex-col items-center snapelement'>
+        <h2 className='text-3xl text-start font-semibold text-white p-16'>.Works</h2>
         <ul className='w-4/5 flex flex-col gap-4'>
             <li>
                 <button className='w-full relative '>
