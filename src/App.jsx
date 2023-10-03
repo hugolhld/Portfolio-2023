@@ -10,6 +10,9 @@ import Works from './screens/Works'
 import Globe from './components/GlobeComp'
 import GlobeComp from './components/GlobeComp'
 import Skills from './screens/Skills'
+import gitLogo from './assets/github-eva.svg'
+import mailLogo from './assets/mail.svg'
+import Form from './screens/Form'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -103,10 +106,18 @@ function App() {
           </div>
           <div className="second__section flex relative">
             <div className='w-1/2'>
-              <Works />
+              <Form />
             </div>
             <div className='w-1/2 flex justify-center overflow-hidden'>
               <GlobeComp />
+            </div>
+            <div className='fixed bottom-0 right-0 z-10 flex my-4'>
+              <a href='https://www.github.com/hugolhld' target='_blank' className="p-4 rounded-full mx-4 " style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
+                <img src={gitLogo} alt="github logo" className='w-12 h-12' />
+              </a>
+              <a href='mailto:hugo.lhernould@gmail.com' className="p-4 rounded-full mx-4 " style={{background: 'linear-gradient(270.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
+                <img src={mailLogo} alt="mail logo" className='w-12' />
+              </a>
             </div>
           </div>
         </main>
