@@ -6,7 +6,7 @@ const Footer = () => {
                 Made with ❤️
             </span>
             <span> </span>
-            and Figma, ViteJS, R3F, ThreeJS, Rapier, Gsap ...
+            and Figma, ViteJS, R3F, Rapier, Gsap, GlobeGL ...
         </p>
     </footer>
   )

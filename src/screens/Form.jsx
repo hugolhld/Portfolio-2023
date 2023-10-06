@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
+import TitleSection from '../components/TitleSection'
 
 const Form = () => {
 
@@ -20,7 +21,8 @@ const Form = () => {
 
   return (
     <section className='w-full h-screen flex flex-col justify-center items-center snapelement'>
-        <h2 className='text-3xl text-start font-semibold text-white p-16'>.Say Hi</h2>
+        {/* <h2 className='text-3xl text-start font-semibold text-white p-4 w-full'>.Say Hi</h2> */}
+        <TitleSection title='.Say Hi' />
         <form ref={formRef} onSubmit={sendMail} className='flex flex-col w-4/5'>
           <label className='text-white font-semibold pt-4 pb-2' htmlFor="mail">Votre adresse mail</label>
           <input className='rounded-lg py-2 px-2 focus:outline-none border-4 border-purple-500' type="email" name="mail" id="mail" />

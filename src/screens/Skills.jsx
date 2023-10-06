@@ -5,11 +5,13 @@ import threeImg from '../assets/threejs.svg'
 import rapierImg from '../assets/rapier.svg'
 import firebaseImg from '../assets/firebase.svg'
 import githubImg from '../assets/github.svg'
+import TitleSection from '../components/TitleSection'
 
 const Skills = () => {
   return (
-    <section className='w-full h-screen flex flex-col justify-center  snapelement'>
-        <h2 className='text-3xl text-start font-semibold text-white p-16'>.Skills</h2>
+    <section className='w-full h-screen flex flex-col justify-center items-center snapelement'>
+        {/* <h2 className='text-3xl text-start font-semibold text-white p-16'>.Skills</h2> */}
+        <TitleSection title={'.Skills'} />
         <ul className='flex w-4/5 justify-between flex-wrap mx-auto gap-y-4'>
           <li className='flex justify-center w-1/3' >
             <img src={reactImg} alt="" className='w-32 h-32 p-4 rounded-full' style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}/>
