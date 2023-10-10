@@ -45,9 +45,9 @@ const Header = () => {
   return (
     <header ref={headerRef} className='w-full transition fixed z-20'>
 
-        <div className={`${isScrolling && 'py-8'} transition-all w-5/5 flex  mx-auto`}>
+        <div className={`${'py-8'} transition-all w-5/5 flex justify-between  mx-auto`}>
 
-            <div className={`w-1/3 justify-center flex`}>
+            <div className={`px-16 justify-center flex`}>
                 {/* ${isScrolling ? topLeftStyleScroll : topLeftStyleInit} */}
                 <div className={` ${topLeftStyleScroll} h-16 bg-black flex justify-center items-center transition-all`} style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
                     <span className='text-white font-bold text-3xl text-center '>
@@ -56,7 +56,7 @@ const Header = () => {
                 </div>
             </div>
             
-            <div className={` w-2/3 flex justify-center`} >
+            <div className={` px-16 flex justify-center`} >
                 {/* ${isScrolling ? topRightStyleScroll : topRightStyleInit} */}
                 <div className={` ${topRightStyleScroll} transition-all bg-black flex items-center justify-center`} style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} >
                     
@@ -67,11 +67,31 @@ const Header = () => {
                     */}
                     
                     <ul className='text-white text-md flex gap-8 justify-around px-8 h-16 items-center rounded-full' /* style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} */>
-                        <li className='font-semibold hover:cursor-pointer'>home</li>
-                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>works</li>
-                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>skills</li>
-                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>about</li>
-                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>say hi</li>
+                        <li className='font-semibold hover:cursor-pointer'>
+                            <a href="#home">
+                                home
+                            </a>
+                        </li>
+                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>
+                            <a href="#works">
+                                works
+                            </a>
+                        </li>
+                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>
+                            <a href="#skills">
+                                skills
+                            </a>
+                        </li>
+                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>
+                            <a href="#about">
+                                about
+                            </a>
+                        </li>
+                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>
+                            <a href="#contact">
+                                say hi
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
