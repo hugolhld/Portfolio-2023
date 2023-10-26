@@ -4,6 +4,7 @@ import menuSvg from '../assets/menu-outline.svg'
 const Header = () => {
 
     const headerRef = useRef()
+    const menuRef = useRef()
     const [isScrolling, setIsScrolling] = useState(false)
 
     const [isOpen, setIsOpen] = useState(false)
@@ -13,37 +14,24 @@ const Header = () => {
     const topRightStyleInit = 'w-full shadow-none'
     const topRightStyleScroll = 'rounded-full'
 
-    window.addEventListener('wheel', e => {
-        // if(e.del)
-        if(headerRef.current) {
-            if(window.scrollY > headerRef.current.offsetTop) {
+    let scrollY = window.scrollY
+    let currentSection = 0
+    let oldSection = 0
 
-                headerRef.current.children[0].classList.add('w-5/5')
-                // headerRef.current.classList.add('my-8')
-                // headerRef.current.children[0].children[0].classList.add('w-16')
-                // headerRef.current.children[0].children[0].classList.add('rounded-full')
-                // headerRef.current.children[0].children[0].classList.remove('w-1/3')
-                // headerRef.current.children[0].children[1].classList.add('rounded-full')
-                // headerRef.current.children[0].children[1].classList.remove('w-2/3')
-                headerRef.current.children[0].classList.remove('w-5/5')
+    window.addEventListener('scroll', () => {
 
-                setIsScrolling(true)
-            } else {
-                setIsScrolling(false)
-                // headerRef.current.classList.remove('my-8')
-                
-                // headerRef.current.children[0].children[0].classList.remove('w-16')
-                // headerRef.current.children[0].children[0].classList.add('w-1/3 rounded-none')
-                // // headerRef.current.children[0].children[0].classList.remove('w-')
-                // headerRef.current.children[0].children[1].classList.add('w-2/3 rounded-none')
-                headerRef.current.children[0].classList.remove('w-5/5')
-                headerRef.current.children[0].classList.add('w-5/5')
+        scrollY = window.scrollY
+        const newSection = Math.round(scrollY / window.innerHeight)
 
-            }
-            console.log(window.scrollY > headerRef.current.offsetTop)
+        if(newSection != currentSection) {
+            oldSection = currentSection
+            currentSection = newSection
+
+            menuRef.current.children[currentSection].classList.add('font-semibold')
+            menuRef.current.children[oldSection].classList.remove('font-semibold')
         }
-    })
 
+    })
 
   return (
     <header ref={headerRef} className='w-full transition fixed z-20'>
@@ -63,8 +51,8 @@ const Header = () => {
                 {/* ${isScrolling ? topRightStyleScroll : topRightStyleInit} */}
                 <div className={` ${topRightStyleScroll} transition-all bg-black flex items-center justify-center`} style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} >
                     
-                    <ul className='text-white text-md flex gap-8 justify-around px-8 h-16 items-center rounded-full' /* style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} */>
-                        <li className='font-semibold hover:cursor-pointer'>
+                    <ul ref={menuRef} className='text-white text-md flex gap-8 justify-around px-8 h-16 items-center rounded-full' /* style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} */>
+                        <li className=' hover:cursor-pointer'>
                             <a href="#home">
                                 home
                             </a>
