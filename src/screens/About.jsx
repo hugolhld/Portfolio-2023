@@ -3,7 +3,7 @@ import TitleSection from '../components/TitleSection'
 
 const About = () => {
   return (
-    <section id='about' className='w-full mx-16 h-screen flex flex-col justify-center items-center snapelement'>
+    <section id='about' className='w-full mx-auto md:mx-16 h-screen flex flex-col justify-center items-center snapelement'>
         {/* <h2 className='text-3xl text-start font-semibold text-white p-16'>.About</h2> */}
         <TitleSection title={'.About'} />
         <div className='w-24 h-24 rounded-full bg-black p-4 my-8'>

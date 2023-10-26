@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import earthMap from '../assets/earth-dark.jpg'
+import { useEffect, useRef, useState } from 'react'
 import customMap from '../assets/custom.geo.json'
 import pointMap from '../assets/map.json'
 import linesMap from '../assets/lines.json'

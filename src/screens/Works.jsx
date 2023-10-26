@@ -6,7 +6,7 @@ import portfolioImg from '../assets/portfolio.png'
 
 const Works = () => {
   return (
-    <section id='works' className='w-full mx-16 h-screen flex justify-center flex-col items-center snapelement'>
+    <section id='works' className='w-full mx-auto md:mx-16 h-screen flex justify-center flex-col items-center snapelement'>
         {/* <h2 className='text-3xl text-start font-semibold text-white p-16'>.Works</h2> */}
         <TitleSection title={'.Works'} />
         <ul className='w-4/5 flex flex-col gap-4'>

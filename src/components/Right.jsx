@@ -9,7 +9,7 @@ import GlobeComp from './GlobeComp'
 
 const Right = ({countScroll, mainRef}) => {
   return (
-    <div className='w-1/2  flex justify-center items-center fixed h-screen'>
+    <div id='contentThree' className='md:w-1/2  w-full flex justify-center items-center fixed z-10 backdrop-blur-lg md:backdrop-blur-0 h-[50vh] md:h-screen'>
         {/* <div className=' w-4/5 h-3/5 shadow-2xl'> */}
             {/* <Threescene /> */}
             <Canvas shadows  camera={{position: [15, 15, 15], fov: 30}}>

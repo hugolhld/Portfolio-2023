@@ -1,14 +1,11 @@
-import { Box, Center, Float, OrbitControls, Sphere } from '@react-three/drei'
+import { useEffect, useRef, useState } from 'react'
+import { Box } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { Physics, RigidBody } from '@react-three/rapier'
-import React, { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
-import BlockElement from './BlockElement'
 import BlockSingle from './BlockSingle'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import scrollHooks from '../functions/scrollHooks'
-import Globe from 'react-globe.gl'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -299,10 +296,24 @@ useEffect(() => {
             trigger: mainRef.current.children[3],
             scrub: true,
             // markers: true,
-            start: 'center center'
+            start: 'center center',
+            // toggleClass: {className: "backdrop-blur-lg", targets: "#contentThree"}
+            onLeave: () => {
+                document.querySelector('#contentThree').classList.remove('backdrop-blur-lg')
+            },
+            onEnterBack: () => {
+                document.querySelector('#contentThree').classList.add('backdrop-blur-lg')
+            }
         },
         y: '+=10',
-        duration: 3
+        duration: 3,
+        // onComplete: function() {
+        //     document.querySelector('#contentThree').classList.remove('backdrop-blur-lg')
+        // },
+        // onleave: function() {
+        //     document.querySelector('#contentThree').classList.add('backdrop-blur-lg')
+        // },
+        // on
       })
 }, [groupRef.current])
 

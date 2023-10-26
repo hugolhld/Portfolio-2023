@@ -2,10 +2,10 @@ import '../App.css'
 
 const Home = () => {
   return (
-    <section id='home' className='flex justify-center items-center w-full h-screen snapelement'>
+    <section id='home' className='flex justify-center mx-auto md:mx-0 items-center w-full md:h-screen snapelement'>
         {/* <LeftHome /> */}
         <div className='flex flex-col gap-4'>
-            <h1 className='flex flex-col text-6xl font-bold'>
+            <h1 className='flex flex-col text-4xl md:text-6xl font-bold'>
                 <span className='pb-6 gradient text' >
                     H.DEV
                 </span>

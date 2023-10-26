@@ -20,7 +20,7 @@ const Form = () => {
   }
 
   return (
-    <section id='contact' className='w-full mx-16 h-screen flex flex-col justify-center items-center snapelement'>
+    <section id='contact' className='w-full mx-auto md:mx-16 h-screen flex flex-col justify-center items-center snapelement'>
         {/* <h2 className='text-3xl text-start font-semibold text-white p-4 w-full'>.Say Hi</h2> */}
         <TitleSection title='.Say Hi' />
         <form ref={formRef} onSubmit={sendMail} className='flex flex-col w-4/5'>

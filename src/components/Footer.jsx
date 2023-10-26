@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className='bg-[#2F3640] w-full flex justify-center py-2 absolute'>
+    <footer className='bg-[#2F3640] w-full flex justify-center py-2 absolute text-center'>
         <p className="text-white">
             <span className="font-bold whitespace-pre">
                 Made with ❤️
