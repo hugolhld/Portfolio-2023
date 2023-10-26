@@ -17,8 +17,6 @@ const GlobeComp = () => {
     globeRef.current.controls().autoRotate = true
     globeRef.current.controls().autoRotateSpeed = 1
     
-    console.log(globeRef.current)
-
   }, [])
 
   return (

@@ -1,13 +1,10 @@
-import { useRef, useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
+import { useRef, useState } from 'react'
 import Background from './components/Background'
 import Header from './components/Header'
 import Home from './screens/Home'
 import Right from './components/Right'
 import Works from './screens/Works'
-// import Globe from './components/GlobeComp'
 import GlobeComp from './components/GlobeComp'
 import Skills from './screens/Skills'
 import gitLogo from './assets/github-eva.svg'
@@ -35,7 +32,7 @@ function App() {
               <Skills />
               <About />
             </div>
-            <div className='right-content w-full h-[50vh] relative md:absolute md:right-0 md:h-full  md:w-1/2'>
+            <div className='right-content w-full h-[50vh] relative md:absolute md:right-0 md:h-[100vh] overflow-hidden md:w-1/2'>
               <Right mainRef={tetstt} countScroll={countScroll} />
             </div>
           </div>
@@ -48,11 +45,11 @@ function App() {
             </div>
           </div>
           <div className='hidden fixed bottom-0 right-0 z-10 md:flex my-8 mx-16'>
-            <a href='https://www.github.com/hugolhld' target='_blank' rel='noreferrer' className="p-4 rounded-full mx-4 " style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
-              <img src={gitLogo} alt="github logo" className='w-12 h-12' />
+            <a href='https://www.github.com/hugolhld' target='_blank' rel='noreferrer' className="p-4 rounded-full mx-4 transition-all hover:animate-bounce" style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
+              <img src={gitLogo} alt="github logo" className='w-12 h-12' style={{filter: 'invert(100%) sepia(100%) saturate(0%) hue-rotate(19deg) brightness(102%) contrast(101%)'}}/>
             </a>
-            <a href='mailto:hugo.lhernould@gmail.com' className="p-4 rounded-full mx-4 " style={{background: 'linear-gradient(270.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
-              <img src={mailLogo} alt="mail logo" className='w-12' />
+            <a href='mailto:hugo.lhernould@gmail.com' className="p-4 rounded-full mx-4 hover:animate-bounce" style={{background: 'linear-gradient(270.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
+              <img src={mailLogo} alt="mail logo" className='w-12' style={{filter: 'invert(100%) sepia(100%) saturate(0%) hue-rotate(19deg) brightness(102%) contrast(101%)'}} />
             </a>
           </div>
         </main>

@@ -63,12 +63,6 @@ const Header = () => {
                 {/* ${isScrolling ? topRightStyleScroll : topRightStyleInit} */}
                 <div className={` ${topRightStyleScroll} transition-all bg-black flex items-center justify-center`} style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} >
                     
-                    {/* 
-                    
-                        add bg to ul and padding tp div
-                    
-                    */}
-                    
                     <ul className='text-white text-md flex gap-8 justify-around px-8 h-16 items-center rounded-full' /* style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} */>
                         <li className='font-semibold hover:cursor-pointer'>
                             <a href="#home">
@@ -113,8 +107,6 @@ const Header = () => {
                     </button>
                 </div>
             </div>
-            {
-                // isOpen &&
                 <div className='w-full h-screen mt-32' >
                     <ul className='text-white text-md flex flex-col gap-8 justify-around px-8 h-16 items-center rounded-full' /* style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} */>
                         <li className='font-semibold w-full h-full text-center hover:cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
@@ -144,7 +136,6 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
-            }
         </div>
 
 

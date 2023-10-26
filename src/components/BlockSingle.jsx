@@ -2,7 +2,7 @@ import { Box } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
 import { gsap } from 'gsap'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { BoxGeometry } from 'three'
 import * as THREE from 'three'
 
@@ -21,61 +21,13 @@ const BlockSingle = ({pos, index, section, mainRef}) => {
     let activate = false
     let activateBody = false
 
-
-    // useEffect(() => {
-    //   console.log(section)
-    // }, [section])
-
     const [sectionID, setsectionID] = useState(0)
-
-    // useEffect(() => {
-    //   setsectionID(section)
-    // }, [])
-
-    useFrame((state, delta) => {
-        // console.log(boxRef.current.position())
-    })
-
-    // useEffect(() => {
-
-    //     console.log(boxRef.current.translation())
-    //     console.log(mainRef)
-    //     console.log(pos)
-
-    //     gsap.to(boxRef.current.translation(), {
-    //         scrollTrigger: {
-    //             trigger: mainRef,
-    //             scrub: true,
-    //             markers: true
-    //         }, 
-    //         x: pos[0],
-    //         y: pos[1],
-    //         z: pos[2],
-    //         duration: 3
-    //     })
-
-    //     console.log(boxRef)
-    // }, [boxRef.current])
-    
-
 
     const testSection = () => {
         if(section !== sectionID) {
             setsectionID(section)
         }
     }
-
-    // window.addEventListener('wheel', () => {
-    //     testSection()
-    //     console.log(section)
-    // })
-    
-    // useEffect(() => {
-    //   console.log(section)
-    // }, [section])
-    
-    
-
 
     const fun = () => {
         boxRef.current.wakeUp()
