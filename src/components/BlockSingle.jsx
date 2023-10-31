@@ -118,7 +118,7 @@ const BlockSingle = ({pos, index, section, mainRef}) => {
 
         if(!isMovginZ) {
             if(z > pos[2] - 0.03 && z < pos[2] + 0.03) {
-                console.log('z is good')
+                // console.log('z is good')
 
                 z = 0
                 isMovginZ = true

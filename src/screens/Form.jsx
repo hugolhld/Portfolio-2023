@@ -42,8 +42,8 @@ const Form = () => {
           
           <label className='text-white font-semibold pt-4 pb-2' htmlFor="message">Your message</label>
           <textarea className='p-2 rounded-lg resize-none shadow-xl' name="text" id="message" cols="30" rows="10"></textarea>
-          <div className='flex justify-end'>
-            <input type="submit" value="Say hi" className='bg- text-white font-semibold w-1/3 my-4 rounded-lg py-2 hover:cursor-pointer' style={{background: 'linear-gradient(45.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} />
+          <div className='flex w-full md:w-auto md:justify-end'>
+            <input type="submit" value="Say hi" className='w-full text-white font-semibold md:w-1/3 my-4 rounded-lg py-2 hover:cursor-pointer' style={{background: 'linear-gradient(45.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} />
           </div>
         </form>
     </section>

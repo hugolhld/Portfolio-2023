@@ -40,7 +40,7 @@ function App() {
             <div className='w-4/5 mx-auto md:mx-0 md:w-1/2'>
               <Form />
             </div>
-            <div className='w-full  mx-auto md:h-screen md:mx-0 md:w-1/2 flex justify-center overflow-hidden'>
+            <div className='w-full mx-auto md:h-screen md:mx-0 md:w-1/2 flex justify-center overflow-hidden'>
               <GlobeComp />
             </div>
           </div>
