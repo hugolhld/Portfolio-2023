@@ -1,10 +1,11 @@
 import React from 'react'
 import TitleSection from '../components/TitleSection'
 import hugoImg from '../assets/hugoo.jpg'
+import SectionElement from '../components/SectionElement'
 
 const About = () => {
   return (
-    <section id='about' className='w-full mx-auto md:mx-16 h-screen flex flex-col justify-center items-center snapelement'>
+    <SectionElement id={'about'}>
 
         <TitleSection title={'.About'} />
 
@@ -21,7 +22,7 @@ const About = () => {
           </p>
         </div>
 
-    </section>
+    </SectionElement>
   )
 }
 

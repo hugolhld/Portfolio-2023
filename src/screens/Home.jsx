@@ -1,8 +1,13 @@
 import '../App.css'
+import SectionElement from '../components/SectionElement'
 
 const Home = () => {
+
+    const buttonClass = "rounded-full px-4 py-2.5 text-white text-xs 3xl:text-lg bg-purple-700 text-center flex items-center  hover:scale-110 transition-all"
+
   return (
-    <section id='home' className='flex justify-center mx-auto md:mx-0 items-center w-full md:h-screen snapelement'>
+    // <section id='home' className='flex justify-center mx-auto md:mx-0 items-center w-full md:h-screen snapelement'>
+    <SectionElement id={'home'}>
 
         <div className='flex flex-col gap-4'>
             <h1 className='flex flex-col text-4xl md:text-6xl 3xl:text-8xl font-bold'>
@@ -24,19 +29,20 @@ const Home = () => {
             </h1>
 
             <div className='flex gap-4'>
-                <a href='https://github.com/hugolhld' target='_blank' className=" rounded-full px-4 py-2.5 text-white text-xs 3xl:text-lg bg-purple-700  text-center flex items-center transition-all hover:scale-110">
+                <a href='https://github.com/hugolhld' target='_blank' className={buttonClass}>
                     GitHub
                 </a>
-                <a href='https://www.linkedin.com/in/hugolhernould/' target='_blank' className="whitespace-nowrap rounded-full px-4 py-1 text-white text-xs 3xl:text-lg bg-purple-700 text-center flex items-center  hover:scale-110 transition-all">
+                <a href='https://www.linkedin.com/in/hugolhernould/' target='_blank' className={buttonClass}>
                     Linkedin
                 </a>
-                <a href='#contact' className="whitespace-nowrap rounded-full px-4 py-1 text-white text-xs 3xl:text-lg bg-purple-700  flex items-center hover:scale-110 transition-all">
+                <a href='#contact' className={buttonClass}>
                     Say Hi
                 </a>
             </div>
         </div>
-
-    </section>
+        
+    </SectionElement>
+    // </section>
   )
 }
 
