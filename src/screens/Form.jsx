@@ -14,12 +14,12 @@ const Form = () => {
   const sendMail = (e) => {
     e.preventDefault()
 
-    emailjs.send('service_5pwbo1f', 'template_ekcmc24', {
+    emailjs.send(import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID, import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID, {
       name: formRef.current.name.value,
       subject: formRef.current.subject.value,
       message: formRef.current.message.value,
       mail: formRef.current.mail.value,
-    }, 'wZ1lVDnNssye3eJEg')
+    }, import.meta.env.VITE_REACT_APP_EMAILJS_API_KEY)
       .then(result => console.log(result))
       .catch(err => console.log(err))
   }
@@ -39,12 +39,12 @@ const Form = () => {
           
           <Reveal>
             <div className='flex flex-col md:flex-row justify-between'>
-              <div className='w-full flex flex-col mr-2'>
+              <div className='w-full flex flex-col md:mr-2'>
                 <label className={labelClass} htmlFor="name">Your name</label>
                 <input className={inputClass} id='name' type="text" />
               </div>
 
-              <div className="w-full flex flex-col ml-2">
+              <div className="w-full flex flex-col md:ml-2">
                 <label className={labelClass} htmlFor="subject">Subject</label>
                 <input className={inputClass} id='subject' type="text" />
               </div>
