@@ -1,4 +1,5 @@
 import '../App.css'
+import Reveal from '../components/Reveal'
 import SectionElement from '../components/SectionElement'
 
 const Home = () => {
@@ -10,35 +11,51 @@ const Home = () => {
     <SectionElement id={'home'}>
 
         <div className='flex flex-col gap-4'>
-            <h1 className='flex flex-col text-4xl md:text-6xl 3xl:text-8xl font-bold'>
-                <span className='pb-6 gradient text' >
-                    H.DEV
-                </span>
-                <hr className='p-2' />
-                <span className='gradient-bg tracking-wider'>
-                    HELLO I'M
-                </span>
+            <div className='flex flex-col text-4xl md:text-6xl 3xl:text-8xl font-bold'>
 
-                <span className='gradient tracking-wider	'>
-                    CREATIVE
-                </span>
+                <Reveal>
+                    <h1 className='pb-6 gradient text' >
+                        H.DEV
+                    </h1>
+                </Reveal>
 
-                <span className='gradient-bg tracking-wider'>
-                    DEVELOPER
-                </span>
-            </h1>
+                <Reveal>
+                    <hr className='p-2' />
+                </Reveal>
+                
+                <Reveal>
+                    <h1 className='gradient-bg tracking-wider'>
+                        HELLO I'M
+                    </h1>
+                </Reveal>
+                
+                <Reveal>
+                    <h1 className='gradient tracking-wider	'>
+                        CREATIVE
+                    </h1>
+                </Reveal>
 
-            <div className='flex gap-4'>
-                <a href='https://github.com/hugolhld' target='_blank' className={buttonClass}>
-                    GitHub
-                </a>
-                <a href='https://www.linkedin.com/in/hugolhernould/' target='_blank' className={buttonClass}>
-                    Linkedin
-                </a>
-                <a href='#contact' className={buttonClass}>
-                    Say Hi
-                </a>
+                <Reveal>
+                    <h1 className='gradient-bg tracking-wider'>
+                        DEVELOPER
+                    </h1>
+                </Reveal>
+
             </div>
+
+            <Reveal>
+                <div className='flex gap-4'>
+                    <a href='https://github.com/hugolhld' target='_blank' className={buttonClass}>
+                        GitHub
+                    </a>
+                    <a href='https://www.linkedin.com/in/hugolhernould/' target='_blank' className={buttonClass}>
+                        Linkedin
+                    </a>
+                    <a href='#contact' className={buttonClass}>
+                        Say Hi
+                    </a>
+                </div>
+            </Reveal>
         </div>
         
     </SectionElement>

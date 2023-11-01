@@ -14,6 +14,9 @@ const Header = () => {
     const topRightStyleInit = 'w-full shadow-none'
     const topRightStyleScroll = 'rounded-full'
 
+    const liDesktop = 'hover:font-semibold'
+    const liMobile = 'hover:font-semibold w-full h-full text-center'
+
     let scrollY = window.scrollY
     let currentSection = 0
     let oldSection = 0
@@ -52,27 +55,27 @@ const Header = () => {
                 <div className={` ${topRightStyleScroll} transition-all bg-black flex items-center justify-center`} style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} >
                     
                     <ul ref={menuRef} className='text-white text-md flex gap-8 justify-around px-8 h-16 items-center rounded-full' /* style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} */>
-                        <li className=' hover:cursor-pointer'>
+                        <li className={liDesktop + ' font-semibold'}>
                             <a href="#home">
                                 home
                             </a>
                         </li>
-                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>
+                        <li className={liDesktop}>
                             <a href="#works">
                                 works
                             </a>
                         </li>
-                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>
+                        <li className={liDesktop}>
                             <a href="#skills">
                                 skills
                             </a>
                         </li>
-                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>
+                        <li className={liDesktop}>
                             <a href="#about">
                                 about
                             </a>
                         </li>
-                        <li className='hover:font-semibold hover:cursor-pointer transition-all'>
+                        <li className={liDesktop}>
                             <a href="#contact">
                                 say hi
                             </a>
@@ -97,27 +100,27 @@ const Header = () => {
             </div>
                 <div className='w-full h-screen mt-32' >
                     <ul className='text-white text-md flex flex-col gap-8 justify-around px-8 h-16 items-center rounded-full' /* style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} */>
-                        <li className='font-semibold w-full h-full text-center hover:cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
+                        <li className={liMobile} onClick={() => setIsOpen(!isOpen)}>
                             <a href="#home">
                                 home
                             </a>
                         </li>
-                        <li className='hover:font-semibold w-full h-full text-center hover:cursor-pointer transition-all' onClick={() => setIsOpen(!isOpen)}>
+                        <li className={liMobile} onClick={() => setIsOpen(!isOpen)}>
                             <a href="#works">
                                 works
                             </a>
                         </li>
-                        <li className='hover:font-semibold w-full h-full text-center hover:cursor-pointer transition-all' onClick={() => setIsOpen(!isOpen)}>
+                        <li className={liMobile} onClick={() => setIsOpen(!isOpen)}>
                             <a href="#skills">
                                 skills
                             </a>
                         </li>
-                        <li className='hover:font-semibold w-full h-full text-center hover:cursor-pointer transition-all' onClick={() => setIsOpen(!isOpen)}>
+                        <li className={liMobile} onClick={() => setIsOpen(!isOpen)}>
                             <a href="#about">
                                 about
                             </a>
                         </li>
-                        <li className='hover:font-semibold w-full h-full text-center hover:cursor-pointer transition-all' onClick={() => setIsOpen(!isOpen)}>
+                        <li className={liMobile} onClick={() => setIsOpen(!isOpen)}>
                             <a href="#contact">
                                 say hi
                             </a>

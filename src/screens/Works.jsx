@@ -6,15 +6,16 @@ import portfolioImg from '../assets/portfolio.png'
 import cocoImg from '../assets/cocoparks.png'
 import WorkElement from '../components/WorkElement'
 import SectionElement from '../components/SectionElement'
+import Reveal from '../components/Reveal'
 
 const Works = () => {
   return (
     <SectionElement id='works'>
 
     {/* // <section id='works' className='w-full mx-auto md:mx-16 h-screen flex justify-center flex-col items-center snapelement'> */}
-
-        <TitleSection title={'.Works'} />
-
+        {/* <Reveal> */}
+            <TitleSection title={'.Works'} />
+        {/* </Reveal> */}
         <ul className='w-4/5 flex flex-col gap-4'>
             
             <WorkElement 
@@ -22,7 +23,7 @@ const Works = () => {
                 img={portfolioImg}
                 text={'Portfolio - 2023'}
             />
-            
+        
             <WorkElement 
                 link={'https://my-cardinet.com/'}
                 img={cardinetImg}
@@ -45,15 +46,16 @@ const Works = () => {
                 link={''}
                 text={'Your future project - NOW'}
             /> */}
-
-            <li>
-                <button className='w-full relative '>
-                    <div className='w-full py-14 blur hover:blur-0 transition-all bg-red-400'></div>
-                    <span className=' absolute w-full h-full pointer-events-none flex items-center justify-center top-0 left-0 font-semibold text-white text-lg text-center'>
-                        Your future project - NOW
-                    </span>
-                </button>
-            </li>
+            <Reveal>
+                <li>
+                    <button className='w-full relative '>
+                        <div className='w-full py-14 blur hover:blur-0 transition-all bg-red-400'></div>
+                        <span className=' absolute w-full h-full pointer-events-none flex items-center justify-center top-0 left-0 font-semibold text-white text-lg text-center'>
+                            Your future project - NOW
+                        </span>
+                    </button>
+                </li>
+            </Reveal>
         </ul>
     {/* // </section> */}
     </SectionElement>
