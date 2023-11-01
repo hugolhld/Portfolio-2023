@@ -38,8 +38,8 @@ const Form = () => {
           </Reveal>
           
           <Reveal>
-            <div className='flex justify-between'>
-              <div className=' w-full flex flex-col mr-2'>
+            <div className='flex flex-col md:flex-row justify-between'>
+              <div className='w-full flex flex-col mr-2'>
                 <label className={labelClass} htmlFor="name">Your name</label>
                 <input className={inputClass} id='name' type="text" />
               </div>
