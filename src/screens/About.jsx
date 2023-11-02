@@ -11,12 +11,12 @@ const About = () => {
         <TitleSection title={'.About'} />
 
           <div className='w-64 h-64 rounded-full  p-4 my-8'>
-            <Reveal>
+            <Reveal width={true}>
               <img src={hugoImg} alt="profile" className='w-full h-full rounded-full' />
             </Reveal>
           </div>
 
-        <Reveal>
+        <Reveal width={true}>
           <div className='w-4/5 mx-auto'>
             <p className='text-white xl:text-lg 2xl:text-xl'>
               Hi, my name's <span className='font-bold'>Hugo</span>, and I'm a <span className='font-bold'>junior front-end developer</span> who also does back-end work, but with less depth.

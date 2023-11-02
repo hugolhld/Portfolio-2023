@@ -5,7 +5,7 @@ const SectionElement = ({children, id}) => {
 
     const ref = useRef(null)
 
-    const sectionClass = id == 'home' ? 'flex justify-center mx-auto md:mx-0 items-center w-full md:h-screen snapelement  transition-opacity' : 'w-full mx-auto md:mx-16 h-screen flex flex-col justify-center items-center snapelement  transition-opacity'
+    const sectionClass = id == 'home' ? 'flex justify-center mx-auto md:mx-0 items-center  md:h-screen snapelement  transition-opacity' : 'w-full mx-auto md:mx-16 h-screen flex flex-col justify-center items-center snapelement  transition-opacity'
 
     // const zeubClass ='okok okokok okokokko'
 

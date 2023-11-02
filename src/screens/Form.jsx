@@ -30,14 +30,14 @@ const Form = () => {
         <TitleSection title='.Say Hi' />
 
         <form ref={formRef} onSubmit={sendMail} className='flex flex-col w-4/5'>
-          <Reveal>
+          <Reveal width={true}>
             <div className='flex flex-col'>
               <label className={labelClass} htmlFor="mail">Your email</label>
               <input className={inputClass} type="email" name="mail" id="mail" />
             </div>
           </Reveal>
           
-          <Reveal>
+          <Reveal width={true}>
             <div className='flex flex-col md:flex-row justify-between'>
               <div className='w-full flex flex-col md:mr-2'>
                 <label className={labelClass} htmlFor="name">Your name</label>
@@ -51,13 +51,16 @@ const Form = () => {
             </div>
           </Reveal>
           
-          <Reveal>
+          <Reveal width={true}>
             <div className='flex flex-col'>
               <label className={labelClass} htmlFor="message">Your message</label>
               <textarea className='p-2 rounded-lg resize-none shadow-xl' name="text" id="message" cols="30" rows="10"></textarea>
-              <div className='flex w-full md:w-auto md:justify-end'>
-                <input type="submit" value="Say hi" className='w-full text-white font-semibold md:w-1/3 my-4 rounded-lg py-2 hover:cursor-pointer' style={{background: 'linear-gradient(45.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} />
-              </div>
+            </div>
+          </Reveal>
+          
+          <Reveal width={true}>
+            <div className='flex w-full md:w-auto md:justify-end'>
+              <input type="submit" value="Say hi" className='w-full text-white font-semibold md:w-1/3 my-4 rounded-lg py-2 hover:cursor-pointer' style={{background: 'linear-gradient(45.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} />
             </div>
           </Reveal>
         </form>

@@ -1,11 +1,15 @@
 import React, { useRef, useState } from 'react'
 import menuSvg from '../assets/menu-outline.svg'
+import { useEffect } from 'react'
+import gsap from 'gsap'
 
 const Header = () => {
 
     const headerRef = useRef()
     const menuRef = useRef()
-    const [isScrolling, setIsScrolling] = useState(false)
+
+    const navRef = useRef(null)
+    const logoRef = useRef(null)
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -36,12 +40,18 @@ const Header = () => {
 
     })
 
+    useEffect(() => {
+      gsap.fromTo(logoRef.current, {yPercent: -200}, {yPercent: 0, duration: .7, delay: .25})
+      gsap.fromTo(navRef.current, {yPercent: -150}, {yPercent: 0, duration: .7, delay: .5})
+    }, [logoRef])
+    
+
   return (
     <header ref={headerRef} className='w-full transition fixed z-20'>
 
         <div className={`hidden md:flex ${'py-8'} transition-all w-5/5 justify-between  mx-auto`}>
 
-            <div className={`px-16 justify-center flex`}>
+            <div ref={logoRef} className={`px-16 justify-center flex`}>
                 {/* ${isScrolling ? topLeftStyleScroll : topLeftStyleInit} */}
                 <div className={` ${topLeftStyleScroll} h-16 bg-black flex justify-center items-center transition-all`} style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
                     <span className='text-white font-bold text-3xl text-center '>
@@ -50,7 +60,7 @@ const Header = () => {
                 </div>
             </div>
             
-            <div className={` px-16 flex justify-center`} >
+            <div ref={navRef} className={` px-16 flex justify-center`} >
                 {/* ${isScrolling ? topRightStyleScroll : topRightStyleInit} */}
                 <div className={` ${topRightStyleScroll} transition-all bg-black flex items-center justify-center`} style={{background: 'linear-gradient(-92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)', boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}} >
                     

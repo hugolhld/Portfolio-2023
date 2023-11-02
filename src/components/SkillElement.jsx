@@ -8,8 +8,8 @@ const SkillElement = ({img, alt, link, name, bgDirection}) => {
 
   return (
       <li className='flex justify-center w-1/2 md:w-1/3 group perspective ' >
-            <Reveal>
-                <div className="relative w-32 h-32 p-4 rounded-full transition-all duration-1000 preserve-3d group-hover:my-rotate-y-180" style={{background: bgFace, boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
+            <Reveal delay={Math.random()}>
+                <div className="relative w-32 h-32 m-4 rounded-full transition-all duration-1000 preserve-3d group-hover:my-rotate-y-180" style={{background: bgFace, boxShadow: '0px 3px 4px 1px rgba(0, 0, 0, 0.25)'}}>
                     <div className="absolute inset-0">
                         <img src={img} alt={alt} className='w-full h-full p-4' />
                     </div>

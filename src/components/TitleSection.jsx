@@ -3,11 +3,15 @@ import Reveal from './Reveal'
 
 const TitleSection = ({title}) => {
   return (
-    <Reveal>
-      <h2 className='text-3xl text-start font-semibold text-white p-4 w-full'>
-          {title}
-      </h2>
-    </Reveal>
+    <div className='w-full'>
+      <div className='w-max'>
+        <Reveal>
+            <h2 className='text-3xl text-start font-semibold text-white m-4'>
+                {title}
+            </h2>
+        </Reveal>
+      </div>
+    </div>
   )
 }
 

@@ -16,7 +16,7 @@ const Works = () => {
         {/* <Reveal> */}
             <TitleSection title={'.Works'} />
         {/* </Reveal> */}
-        <ul className='w-4/5 flex flex-col gap-4'>
+        <ul className='w-4/5 flex flex-col my-2 gap-4'>
             
             <WorkElement 
                 link={'#'}
@@ -40,13 +40,14 @@ const Works = () => {
                 link={'https://cocoparks.io/fr-fr'}
                 img={cocoImg}
                 text={'CREATE P.W.A. - COCOPARKS - 2020'}
+                bgCenter={true}
             />
 
             {/* <WorkElement 
                 link={''}
                 text={'Your future project - NOW'}
             /> */}
-            <Reveal>
+            <Reveal width={true}>
                 <li>
                     <button className='w-full relative '>
                         <div className='w-full py-14 blur hover:blur-0 transition-all bg-red-400'></div>
