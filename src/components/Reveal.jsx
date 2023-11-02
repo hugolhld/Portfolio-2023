@@ -15,7 +15,7 @@ const Reveal = ({children, delay, width}) => {
     useEffect(() => {
         
         gsap.from(ref.current, {
-            autoAlpha: 0,
+            opacity: 0,
             yPercent: 80
         })
         
@@ -23,7 +23,7 @@ const Reveal = ({children, delay, width}) => {
             scrollTrigger: {
                 trigger: ref.current,
             },
-            autoAlpha: 1,
+            opacity: 1,
             yPercent: 0,
             duration: .5,
             delay: .5
@@ -48,7 +48,7 @@ const Reveal = ({children, delay, width}) => {
   
 
     return (
-    <div ref={ref} className={`${width === true ? 'w-full' : 'w-max'} relative overflow-hidden`}>
+    <div ref={ref} className={`${width === true ? 'w-full' : 'w-max'} relative overflow-hidden opacity-0`}>
         {children}
         <div ref={absoluteRef} className='absolute w-full h-full top-0 bottom-2  z-10 bg-[#8f1dc5]' /* style={{background: 'linear-gradient(92.46deg, rgba(187, 21, 41) 0.94%, rgba(143, 29, 197) 52.06%)'}} */>
 
