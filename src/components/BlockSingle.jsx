@@ -1,10 +1,7 @@
-import { Box } from '@react-three/drei'
+import { useRef, useState } from 'react'
+import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier'
-import { gsap } from 'gsap'
-import React, { useRef, useState } from 'react'
-import { BoxGeometry } from 'three'
-import * as THREE from 'three'
 
 const BlockSingle = ({pos, index, section, mainRef}) => {
 
@@ -22,12 +19,6 @@ const BlockSingle = ({pos, index, section, mainRef}) => {
     let activateBody = false
 
     const [sectionID, setsectionID] = useState(0)
-
-    const testSection = () => {
-        if(section !== sectionID) {
-            setsectionID(section)
-        }
-    }
 
     const fun = () => {
         boxRef.current.wakeUp()
@@ -66,7 +57,9 @@ const BlockSingle = ({pos, index, section, mainRef}) => {
         
         */
 
-        const time = state.clock.getElapsedTime() * delta * 1.5
+        const time = delta * 4
+        // const time = state.clock.getElapsedTime() * delta * 1.5
+        // const time = state.clock.getElapsedTime() 
 
         if(!isRotateX) {
             if(xR > 0 - 0.03 && xR < 0 + 0.03) {
@@ -185,6 +178,9 @@ const BlockSingle = ({pos, index, section, mainRef}) => {
         
         if(!isMovginX || !isMovginY|| !isMovginZ) {
             boxRef.current.setNextKinematicTranslation({
+                // x: isMovginX && prevPos.x + 0.01,
+                // y: isMovginY && prevPos.y + 0.01,
+                // z: isMovginZ && prevPos.z + 0.01,
                 x: isMovginX ? pos[0] : x,
                 y: isMovginY ? pos[1] + 1 : y,
                 z: isMovginZ ? pos[2] : z
@@ -197,14 +193,6 @@ const BlockSingle = ({pos, index, section, mainRef}) => {
                 z: pos[2]
             })
 
-            // setTimeout(() => {
-            //     boxRef.current.setBodyType(0)
-            //     console.log('sec')
-            // }, 10000);
-            // setTimeout(() => {
-            //     boxRef.current.addForce({x: 2, y:0, z: -5})
-            //     console.log('sec')
-            // }, 12000);
             activateBody = true
         }
     })
@@ -217,7 +205,7 @@ const BlockSingle = ({pos, index, section, mainRef}) => {
                 position={[
                     index - 3,
                     Math.floor(Math.random() * (7 - 4) + 4),
-                    Math.floor(Math.random() * (3 + 3) - 3),
+                    Math.floor(Math.random() * (2.5 + 2.5) - 2.5),
                 ]} 
                 restitution={1}
             >

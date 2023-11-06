@@ -16,6 +16,7 @@ const GlobeComp = () => {
     globeRef.current.controls().enableZoom = false
     globeRef.current.controls().autoRotate = true
     globeRef.current.controls().autoRotateSpeed = 1
+    globeRef.current.pointOfView({lat: 41.3869216449129, long: 2.16558834122826, altitude: 2}, 0)
     
   }, [])
 
@@ -51,13 +52,14 @@ const GlobeComp = () => {
         labelsData={pointMap.coordinates}
         labelLat={(d) => d.lat}
         labelLng={(d) => d.lng}
-        labelSize={1}
         labelText={(d) => d.city}
+        labelSize={1}
         labelColor={() => '#bdc3c7'}
         labelAltitude={0.01}
 
         hexBinPointsData={pointMap.coordinates}
         hexBinResolution={3}
+
       />
   )
 }

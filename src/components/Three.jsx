@@ -172,24 +172,24 @@ useEffect(() => {
                             }
 
                         <RigidBody type='fixed'  position={[0, 4.5, -4.5]}>
-                            <Box args={[10, 10, 1]}>
+                            <Box args={[10, 20, 1]}>
                                 <meshStandardMaterial transparent={true} opacity={0} />
                             </Box>
                         </RigidBody>
 
                         <RigidBody type='fixed' position={[-4.5, 4.5, 0]}>
-                            <Box args={[1, 10, 10]}>
+                            <Box args={[1, 20, 10]}>
                                 <meshStandardMaterial transparent={true} opacity={0} />
                             </Box>
                         </RigidBody>
 
                         <RigidBody type='fixed' position={[4.5, 4.5, 0]}>
-                            <Box args={[1, 10, 10]}>
+                            <Box args={[1, 20, 10]}>
                                 <meshStandardMaterial transparent={true} opacity={0} />
                             </Box>
                         </RigidBody>
                         <RigidBody type='fixed' position={[0, 4.5, 4.5]}>
-                            <Box args={[10, 10, 1]}>
+                            <Box args={[10, 20, 1]}>
                                 <meshStandardMaterial transparent={true} opacity={0} />
                             </Box>
                         </RigidBody>
